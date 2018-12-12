@@ -12,13 +12,16 @@
 </body>
 <script type="text/javascript">
 $(function(){
-	
+	//定义事件处理函数 注意 这个函数一定放到事件触发（第22行）之前
 	$('#test').on('click',function(event){
 		 console.log(event.name);
 	});
+	//定义事件
 	let e = $.Event('click',{'name':'test'});
+	//触发事件
 	$('#test').trigger(e);
-	
+	//第一次运行控制台会打印test,说明自定义的事件被触发执行了 ,test是{'name':'test'}这个对象的值,携带在事件e上传递到input元素上
+	//第二次点击input控制台打印undefined,说明执行的是系统默认的时间,因为没有携带参数,所以值是undefined
 	
 })
 </script>
